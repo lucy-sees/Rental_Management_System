@@ -1,0 +1,18 @@
+flowchart TD
+    A[Tenant Portal] -->|Pay Rent| B[Payment Gateway]
+    B -->|Process Payment| C[Core System]
+    D[Landlord Portal] -->|Access| C
+    C -->|Store Data| E[(Database)]
+    
+    subgraph Core System
+        F[Authentication Service]
+        G[Rent Management]
+        H[Reporting Module]
+        I[Tenant Management]
+        J[Property Management]
+        K[SMS/Email Notifications]
+    end
+    
+    B -->|Payment Confirmation| K
+    K -->|Send Notifications| L((Landlord))
+    K -->|Send Receipts| M((Tenant))
